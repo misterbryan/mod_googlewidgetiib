@@ -1,2 +1,6 @@
 # mod_googlewidgetiib
-Ce module vous permet d'ajouter sur votre site le bouton +1 de Google, le badge de votre profil Google et un bouton de partage sur Google.
+This module allows you to save on your site Google +1 button, the badge for your Google profile and a share button on Google. With one button, let visitors recommend your content on Google Search and share it on Google+. With the badge, link your Google+ page to your site. Get more recommendations for your site in Google search and grow your audience on Google+. Add share button to content across your site to make sharing on Google+ easy. This button is perfect for content that users may want to share but not +1 (e.g. news or controversial content).
+http://ibrini.com/en/boutique
+-----
+Ce module vous permet d'ajouter sur votre site le bouton +1 de Google, le badge de votre profil Google et un bouton de partage sur Google. Grâce au bouton +1, permettez à vos visiteurs de recommander votre contenu dans la Recherche Google et de le partager sur Google+. Grâce au badge, associez votre page Google+ à votre site. Obtenez davantage de recommandations dans les résultats de recherche Google et augmentez votre visibilité sur Google+. Ajoutez le bouton de partage à du contenu de votre site pour le partager plus facilement sur Google+. Il est particulièrement utile lorsqu'un utilisateur a envie de partager un contenu sans pour autant le recommander (actualité ou contenu pouvant déclencher une polémique).
+http://ibrini.com/fr/boutique

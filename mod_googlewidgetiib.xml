@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.x" client="site" method="upgrade">
+    <name>mod_googlewidgetiib</name>
+    <creationDate>2015-08-24</creationDate>
+    <copyright>Copyright (C). Tous droits réservés.</copyright>
+    <license>GNU/GPL version 2 ou version ultérieure</license>
+    <author>Briand Idossou</author>
+    <authorEmail>idossoubr@yahoo.fr</authorEmail>
+    <authorUrl>http://ibrini.com</authorUrl>
+    <version>1.0.1</version>
+    <description>Google Widgets for your Joomla! website. With this module, you can easily insert the +1 button, badge Google+ and share your content on Google+. Created by Ibrini. For detailed instructions, please visit http://ibrini.com. You can find other extensions on http://ibrini.com</description>
+
+    <files>
+        <filename>mod_googlewidgetiib.xml</filename>
+        <filename module="mod_googlewidgetiib">mod_googlewidgetiib.php</filename>
+        <filename>index.html</filename>
+        <filename>helper.php</filename>
+        <folder>tmpl</folder>
+        
+    </files>
+    
+    
+    <languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.mod_googlewidgetiib.ini</language>
+        <language tag="en-GB">en-GB/en-GB.mod_googlewidgetiib.sys.ini</language>
+        <language tag="fr-FR">fr-FR/fr-FR.mod_googlewidgetiib.ini</language>
+        <language tag="fr-FR">fr-FR/fr-FR.mod_googlewidgetiib.sys.ini</language>
+	
+    </languages>
+
+
+
+
+    <config>
+        <fields name="params">
+            <fieldset name="btn_plus_one">
+                <field name="btnplus_show_on_site" type="radio"
+                       label="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_SHOW_ON_SITE_LABEL"
+                       description="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_SHOW_ON_SITE_DESC"
+                       default="yes"
+                       required="1"
+                >
+                    <option value="yes">JYes</option>
+                    <option value="no">JNo</option>
+                </field>
+                <field name="btnplus_size" type="radio"
+                       label="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BTNPLUS_SIZE_LABEL"
+                       description="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BTNPLUS_SIZE_DESC"
+                       default="standard"
+                       required="1"
+                >
+                    <option value="small">MOD_GOOGLEWIDGETIIB_OPTION_SMALL</option>
+                    <option value="medium">MOD_GOOGLEWIDGETIIB_OPTION_MEDIUM</option>
+                    <option value="standard">MOD_GOOGLEWIDGETIIB_OPTION_STANDARD</option>
+                    <option value="tall">MOD_GOOGLEWIDGETIIB_OPTION_TALL</option>
+                </field>
+                <field name="btnplus_annotation" type="list"
+                       label="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BTNPLUS_ANNOTATION_LABEL"
+                       description="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BTNPLUS_ANNOTATION_DESC"
+                       default="bubble"
+                       required="1"
+                >
+                    <option value="inline">MOD_GOOGLEWIDGETIIB_OPTION_BUBBLE</option>
+                    <option value="bubble">MOD_GOOGLEWIDGETIIB_OPTION_BUBBLE</option>
+                    <option value="none">MOD_GOOGLEWIDGETIIB_OPTION_NONE</option>
+                </field>
+                <field name="btnplus_width" type="text"
+                       label="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BTNPLUS_WIDTH_LABEL"
+                       description="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BTNPLUS_WIDTH_DESC"
+                       default="300"
+                       filter="int"
+                       required="1"
+                />
+                <field name="btnplus_language" type="list"
+                       label="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BTNPLUS_LANGUAGE_LABEL"
+                       description="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BTNPLUS_LANGUAGE_DESC"
+                       default="en-US"
+                       required="1"
+                >
+                    <option value="fr">MOD_GOOGLEWIDGETIIB_LANGUAGE_FRENCH_FRANCE</option>
+                    <option value="en-US">MOD_GOOGLEWIDGETIIB_LANGUAGE_ENGLISH_USA</option>
+                    <option value="en-GB">MOD_GOOGLEWIDGETIIB_LANGUAGE_ENGLISH_RU</option>
+                    <option value="de">MOD_GOOGLEWIDGETIIB_LANGUAGE_DUTSCH</option>
+                    
+                </field>
+                <field name="btnplus_dynamic" type="checkbox"
+                       label="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BTNPLUS_DYNAMIC_LABEL"
+                       description="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BTNPLUS_DYNAMIC_DESC"
+                       value="1"
+                />
+                <field name="btnplus_parsetags" type="radio"
+                       label="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BTNPLUS_PARSETAGS_LABEL"
+                       description="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BTNPLUS_PARSETAGS_DESC"
+                       default="default"
+                       required="1"
+                >
+                    <option value="default">MOD_GOOGLEWIDGETIIB_OPTION_DEFAULT_ONLOAD</option>
+                    <option value="explicit">MOD_GOOGLEWIDGETIIB_OPTION_EXPLICIT</option>
+                </field>
+                <field name="btnplus_js_callback" type="text"
+                       label="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BTNPLUS_JS_CALLBACK_LABEL"
+                       description="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BTNPLUS_JS_CALLBACK_DESC"
+                />
+                <field name="btnplus_url_to_plusone" type="text"
+                       label="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BTNPLUS_URL_TO_PLUSONE_LABEL"
+                       description="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BTNPLUS_URL_TO_PLUSONE_DESC"
+                       default="https://plus.google.com/+Ibrini_IIB"
+                       hint="https://plus.google.com/+Ibrini_IIB"
+                />
+            </fieldset>
+            <fieldset name="badge">
+                <field name="badge_show_on_site" type="radio"
+                       label="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_SHOW_ON_SITE_LABEL"
+                       description="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_SHOW_ON_SITE_DESC"
+                       default="yes"
+                       required="1"
+                >
+                    <option value="yes">JYes</option>
+                    <option value="no">JNo</option>
+                </field>
+                <field name="badge_type" type="radio"
+                       label="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BADGE_TYPE_LABEL"
+                       description="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BADGE_TYPE_DESC"
+                       default="publisher"
+                       required="1"
+                >
+                    <option value="publisher">MOD_GOOGLEWIDGETIIB_OPTION_PAGE</option>
+                    <option value="author">MOD_GOOGLEWIDGETIIB_OPTION_PROFIL</option>
+                </field>
+                <field name="badge_google_user" type="text"
+                       label="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BADGE_GOOGLE_USER_LABEL"
+                       description="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BADGE_GOOGLE_USER_DESC"
+                       hint="https://plus.google.com/+Ibrini_IIB"
+                       default="https://plus.google.com/+Ibrini_IIB"
+                       filter="url"
+                       required="1"
+                />
+                <field name="badge_features" type="radio"
+                       label="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BADGE_FEATURES_LABEL"
+                       description="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BADGE_FEATURES_DESC"
+                       default="Badge"
+                       required="1"
+                >
+                    <option value="Icon">MOD_GOOGLEWIDGETIIB_OPTION_ICON</option>
+                    <option value="Badge">MOD_GOOGLEWIDGETIIB_OPTION_BADGE</option>
+                </field>
+                <field type="spacer" label="MOD_GOOGLEWIDGETIIB_CONFIG_SPACER_BADGE_FEATURES_BADGE" />
+                
+                <field name="badge_layout" type="radio"
+                       label="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BADGE_LAYOUT_LABEL"
+                       description="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BADGE_LAYOUT_DESC"
+                       default="portrait"
+                       required="1"
+                >
+                    <option value="portrait">MOD_GOOGLEWIDGETIIB_OPTION_PORTRAIT</option>
+                    <option value="landscape">MOD_GOOGLEWIDGETIIB_OPTION_LANDSCAPE</option>
+                </field>
+                <field name="badge_width" type="text"
+                       label="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BADGE_WIDTH_LABEL"
+                       description="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BADGE_WIDTH_DESC"
+                       default="180"
+                       filter="int"
+                       required="1"
+                />
+                <field name="badge_color_theme" type="radio"
+                       label="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BADGE_COLOR_THEME_LABEL"
+                       description="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BADGE_COLOR_THEME_DESC"
+                       default="Light"
+                       required="1"
+                >
+                    <option value="Light">MOD_GOOGLEWIDGETIIB_OPTION_LIGHT</option>
+                    <option value="Dark">MOD_GOOGLEWIDGETIIB_OPTION_DARK</option>
+                </field>
+                <field name="badge_cover_photo" type="radio"
+                       label="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BADGE_COVER_PHOTO_LABEL"
+                       description="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BADGE_COVER_PHOTO_DESC"
+                       default="Enabled"
+                       required="1"
+                >
+                    <option value="Enabled">JENABLED</option>
+                    <option value="Disabled">JDISABLED</option>
+                </field>
+                <field name="badge_tagline" type="radio"
+                       label="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BADGE_TAGLINE_LABEL"
+                       description="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BADGE_TAGLINE_DESC"
+                       default="Enabled"
+                       required="1"
+                >
+                    <option value="Enabled">JENABLED</option>
+                    <option value="Disabled">JDISABLED</option>
+                </field>
+                <field name="badge_language" type="list"
+                       label="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BADGE_LANGUAGE_LABEL"
+                       description="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BADGE_LANGUAGE_DESC"
+                       default="en-US"
+                       required="1"
+                >
+                    <option value="fr">MOD_GOOGLEWIDGETIIB_LANGUAGE_FRENCH_FRANCE</option>
+                    <option value="en-US">MOD_GOOGLEWIDGETIIB_LANGUAGE_ENGLISH_USA</option>
+                    <option value="en-GB">MOD_GOOGLEWIDGETIIB_LANGUAGE_ENGLISH_RU</option>
+                    <option value="de">MOD_GOOGLEWIDGETIIB_LANGUAGE_DUTSCH</option>
+                </field>
+                <field name="badge_dynamic" type="checkbox"
+                       label="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BADGE_DYNAMIC_LABEL"
+                       description="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BADGE_DYNAMIC_DESC"
+                       value="1"
+                />
+                <field name="badge_parsetags" type="radio"
+                       label="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BADGE_PARSETAGS_LABEL"
+                       description="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BADGE_PARSETAGS_DESC"
+                       default="default"
+                       required="1"
+                >
+                    <option value="default">MOD_GOOGLEWIDGETIIB_OPTION_DEFAULT_ONLOAD</option>
+                    <option value="explicit">MOD_GOOGLEWIDGETIIB_OPTION_EXPLICIT</option>
+                </field>
+                <field type="spacer" class="bold" label="MOD_GOOGLEWIDGETIIB_CONFIG_SPACER_BADGE_FEATURES_ICON" />
+                <field name="badge_icon_name" type="text"
+                       label="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BADGE_ICON_NAME_LABEL"
+                       description="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BADGE_ICON_NAME_DESC"
+                />
+                <field name="badge_icon_size" type="radio"
+                       label="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BADGE_ICON_SIZE_LABEL"
+                       description="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_BADGE_ICON_SIZE_DESC"
+                       default="medium"
+                >
+                    <option value="small">MOD_GOOGLEWIDGETIIB_OPTION_SMALL</option>
+                    <option value="medium">MOD_GOOGLEWIDGETIIB_OPTION_MEDIUM</option>
+                    <option value="tall">MOD_GOOGLEWIDGETIIB_OPTION_TALL</option>
+                </field>
+            </fieldset>
+            <fieldset name="share">
+                <field name="share_show_on_site" type="radio"
+                       label="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_SHOW_ON_SITE_LABEL"
+                       description="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_SHOW_ON_SITE_DESC"
+                       default="yes"
+                       required="1"
+                >
+                    <option value="yes">JYes</option>
+                    <option value="no">JNo</option>
+                </field>
+                <field name="share_annotation" type="list"
+                       label="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_SHARE_ANNOTATION_LABEL"
+                       description="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_SHARE_ANNOTATION_DESC"
+                       default="bubble"
+                       required="1"
+                >
+                    <option value="inline">MOD_GOOGLEWIDGETIIB_SHARE_OPTION_INLINE</option>
+                    <option value="bubble">MOD_GOOGLEWIDGETIIB_SHARE_OPTION_BUBBLE_HORIZONTAL</option>
+                    <option value="vertical-bubble">MOD_GOOGLEWIDGETIIB_SHARE_OPTION_BUBBLE_VERTICAL</option>
+                    <option value="none">MOD_GOOGLEWIDGETIIB_SHARE_OPTION_NONE</option>
+                </field>
+                <field name="share_size" type="radio"
+                       label="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_SHARE_SIZE_LABEL"
+                       description="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_SHARE_SIZE_DESC"
+                       default="Large"
+                       required="1"
+                >
+                    <option value="Small">MOD_GOOGLEWIDGETIIB_SHARE_OPTION_SMALL</option>
+                    <option value="Medium">MOD_GOOGLEWIDGETIIB_SHARE_OPTION_MEDIUM</option>
+                    <option value="Large">MOD_GOOGLEWIDGETIIB_SHARE_OPTION_LARGE</option>
+                </field>
+                <field name="share_language" type="list"
+                       label="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_SHARE_LANGUAGE_LABEL"
+                       description="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_SHARE_LANGUAGE_DESC"
+                       default="en-US"
+                       required="1"
+                >
+                    <option value="fr">MOD_GOOGLEWIDGETIIB_LANGUAGE_FRENCH_FRANCE</option>
+                    <option value="en-US">MOD_GOOGLEWIDGETIIB_LANGUAGE_ENGLISH_USA</option>
+                    <option value="en-GB">MOD_GOOGLEWIDGETIIB_LANGUAGE_ENGLISH_RU</option>
+                    <option value="de">MOD_GOOGLEWIDGETIIB_LANGUAGE_DUTSCH</option>
+                </field>
+                <field name="share_width" type="text"
+                       label="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_SHARE_WIDTH_LABEL"
+                       description="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_SHARE_WIDTH_DESC"
+                       filter="int"
+                       default="300"
+                />
+                <field name="share_dynamic" type="checkbox"
+                       label="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_SHARE_DYNAMIC_LABEL"
+                       description="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_SHARE_DYNAMIC_DESC"
+                       value="1"
+                />
+                <field name="share_parsetags" type="radio"
+                       label="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_SHARE_PARSETAGS_LABEL"
+                       description="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_SHARE_PARSETAGS_DESC"
+                       default="default"
+                       required="1"
+                >
+                    <option value="default">MOD_GOOGLEWIDGETIIB_OPTION_DEFAULT_ONLOAD</option>
+                    <option value="explicit">MOD_GOOGLEWIDGETIIB_OPTION_EXPLICIT</option>
+                </field>
+                <field name="share_url_to_share" type="text"
+                       label="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_SHARE_URL_TO_SHARE_LABEL"
+                       description="MOD_GOOGLEWIDGETIIB_CONFIG_FIELD_SHARE_URL_TO_SHARE_DESC"
+                       filter="url"
+                />
+            </fieldset>
+        </fields>
+    </config>
+
+
+	
+</extension>
+
+
+<!-- Module built by Ibrini module generator -->
+<!-- http://www.ibrini.com/ -->
